@@ -23,12 +23,12 @@ export default function Navbar() {
     }
 
     const menuItems = [
-        { id: "home", label: "Home", icon: Star },
-        { id: "services", label: "Services", icon: Shield },
-        { id: "booking", label: "Booking", icon: Calendar },
-        { id: "about", label: "About", icon: Info },
-        { id: "resources", label: "Resources", icon: BookOpen },
-        { id: "contact", label: "Contact", icon: Mail },
+        { id: "/", label: "Home", icon: Star },
+        { id: "/services", label: "Services", icon: Shield },
+        { id: "/booking", label: "Booking", icon: Calendar },
+        { id: "/about", label: "About", icon: Info },
+        { id: "/resources", label: "Resources", icon: BookOpen },
+        { id: "/contact", label: "Contact", icon: Mail },
     ]
     return (
       <>
@@ -61,7 +61,7 @@ export default function Navbar() {
           {menuItems.map((item) => (
             <Link
               key={item.id}
-              href={`#${item.id}`}
+              href={`${item.id}`}
               className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
                 activeSection === item.id ? "text-blue-600 font-semibold" : "text-gray-600 hover:text-blue-600"
               }`}
@@ -113,7 +113,7 @@ export default function Navbar() {
               return (
                 <Link
                   key={item.id}
-                  href={`#${item.id}`}
+                  href={`${item.id}`}
                   onClick={toggleMenu}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 transform hover:translate-x-2 ${
                     isActive
