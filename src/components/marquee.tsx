@@ -1,4 +1,3 @@
-"use client"
 
 import { Shield, Clock, Award, Users, CheckCircle, Microscope, FileText, Globe, Star, Zap } from "lucide-react"
 
@@ -77,8 +76,8 @@ const marqueeItems = [
 
 export default function MarqueeContent() {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-r from-blue-50/50 via-white to-cyan-50/50 rounded-xl md:rounded-2xl border border-blue-100/50 backdrop-blur-sm">
-      <div className="flex animate-marquee whitespace-nowrap py-2 md:py-4">
+    <div className="relative w-full max-w-screen-md mx-auto px-4 sm:px-6 md:px-8 overflow-hidden bg-gradient-to-r from-blue-50/50 via-white to-cyan-50/50 rounded-xl md:rounded-2xl border border-blue-100/50 backdrop-blur-sm">
+      <div className="flex items-center justify-center animate-marquee whitespace-nowrap py-2 md:py-4">
         {/* First set of items */}
         {marqueeItems.map((item, index) => {
           const Icon = item.icon
