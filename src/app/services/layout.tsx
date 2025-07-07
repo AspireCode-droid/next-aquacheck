@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import "@/styles/globals.css"
 import "@/styles/index.css"
-
+import { MobileMenuProvider } from "@/context/mobilemenu"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,7 +24,9 @@ export const metadata: Metadata = {
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {
   return (
     <section>
-      {children}
+      <MobileMenuProvider>
+          {children}
+      </MobileMenuProvider>
     </section>
   );
 }

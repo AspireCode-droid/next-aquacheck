@@ -11,15 +11,15 @@ import { AboutSection } from "@/components/homeComponents/aboutSection"
 import { ResourcesSection } from "@/components/homeComponents/resourceSection"
 import { Footer } from "@/components/footer"
 import HeroSection from "@/components/homeComponents/heroSection"
+import { useMobileMenu } from "@/context/mobilemenu"
 
 export default function AquacheckLanding() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isMenuOpen } = useMobileMenu()
   return (
     <>
       <Header />
       <main className={`flex-1 transition-all duration-300 w-full overflow-hidden ${isMenuOpen ? "blur-sm" : ""}`}>
-        
-        {/* Hero Section */}
+
         <HeroSection />
 
         {/* Services Section */}
