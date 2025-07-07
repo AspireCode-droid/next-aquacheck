@@ -2,15 +2,15 @@
 
 import { useState } from "react"
 import { Badge } from "@/components/ui/badge"
-import {ContactCta} from "@/components/contact"
+import {ContactCta} from "@/components/homeComponents/contact"
 import { motion } from "framer-motion"
 import Header from "@/components/Header"
-import HomeServices from "@/components/HomeServices"
+import HomeServices from "@/components/homeComponents/HomeServices"
 import { BookingSection } from "@/components/bookingSection"
-import { AboutSection } from "@/components/aboutSection"
-import { ResourcesSection } from "@/components/resourceSection"
+import { AboutSection } from "@/components/homeComponents/aboutSection"
+import { ResourcesSection } from "@/components/homeComponents/resourceSection"
 import { Footer } from "@/components/footer"
-import HeroSection from "@/components/heroSection"
+import HeroSection from "@/components/homeComponents/heroSection"
 
 export default function AquacheckLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
