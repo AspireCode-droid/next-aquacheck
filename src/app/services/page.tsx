@@ -1,6 +1,6 @@
 "use client"
-import { useState, useEffect, useRef, useCallback } from "react"
-import { motion, useScroll, useTransform, useInView } from "framer-motion"
+import {  useRef,useEffect } from "react"
+import { motion, useScroll, useTransform,} from "framer-motion"
 import { gsap } from "gsap"
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -18,7 +18,6 @@ import StatsSection from "@/components/statsGrid"
 import WhyUs from "@/components/whyUs"
 import FloatingParticles from "@/components/ui/floatingparticles"
 import AdaptiveServiceSolutions from "@/components/serviceComponents/adaptive"
-import WaterQualityChart from "@/components/waterQualityChart"
 import { useMobileMenu } from "@/context/mobilemenu"
 import Header from "@/components/Header"
 import HeroSection from "@/components/serviceComponents/heroSection"
@@ -27,9 +26,11 @@ import { Footer } from "@/components/footer"
 
 
 // Register GSAP plugins
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, MorphSVGPlugin)
-}
+useEffect(() => {
+  if (typeof window !== "undefined") {
+    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, MorphSVGPlugin);
+  }
+}, []);
 
 export default function AquaCheckServices() {
   const { isMenuOpen } = useMobileMenu()
@@ -83,7 +84,6 @@ export default function AquaCheckServices() {
     <>
       <Header />
       <FloatingParticles />
-      {/* Hero Section */}
       <main className={`flex-1 transition-all duration-300 w-full overflow-hidden ${isMenuOpen ? "blur-sm" : ""}`}>
         <HeroSection />
    
