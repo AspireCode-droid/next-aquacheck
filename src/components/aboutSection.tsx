@@ -15,7 +15,7 @@ const fadeUp = {
 export function AboutSection() {
   return (
     <section id="about" className="w-full py-20 md:py-32">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         {/* Section Heading */}
         <motion.div
           className="flex flex-col items-center justify-center space-y-8 text-center mb-16"

@@ -1,29 +1,23 @@
 'use client'
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react"
+import { useState} from "react"
 import Link from "next/link"
-import { useScroll, useInView, useMotionValueEvent } from "framer-motion"
+import { useScroll, useMotionValueEvent } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Droplets, Phone, Mail } from "lucide-react"
 import { Star, Shield, Calendar, Info, BookOpen } from "lucide-react"
 import clsx from "clsx";
+import { useMobileMenu } from "@/context/mobilemenu"
 
-type Props = {
-  activeSection: string
-}
 
-export default function Header({ activeSection }: Props ) {
-    const [isMenuOpen, setIsMenuOpen] = useState(false)
+export default function Header( ) {
+    const { isMenuOpen, toggleMenu } = useMobileMenu()
     const pathname = usePathname()
     const { scrollY } = useScroll()
     const [scrolled, setScrolled] = useState(false)
     useMotionValueEvent(scrollY, "change", (latest) => {
     setScrolled(latest > 50)
     })
-
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen)
-    }
 
     const menuItems = [
         { id: "/", label: "Home", icon: Star },
@@ -104,14 +98,15 @@ export default function Header({ activeSection }: Props ) {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed top-20 right-0 h-[calc(100vh-5rem)] w-80 bg-white/95 backdrop-blur-xl border-l border-gray-100 shadow-2xl transition-all duration-300 ease-in-out z-40 ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+          className={clsx(
+            "lg:hidden fixed top-20 right-0 h-[calc(100vh-5rem)] w-80 bg-white/95 backdrop-blur-xl border-l border-gray-100 shadow-2xl transition-all duration-300 ease-in-out z-40",
+            isMenuOpen ? "translate-x-0 pointer-events-auto" : "translate-x-full pointer-events-none"
+          )}
         >
           <nav className="flex flex-col p-6 space-y-2">
             {menuItems.map((item, index) => {
               const Icon = item.icon
-              const isActive = activeSection === item.id
+              const isActive = pathname === item.id
 
               return (
                 <Link

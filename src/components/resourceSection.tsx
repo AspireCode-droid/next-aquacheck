@@ -28,7 +28,7 @@ const MotionCard = motion(Card)
 export function ResourcesSection() {
   return (
     <section id="resources" className="w-full py-20 md:py-32 bg-gray-50">
-      <div className="container px-4 md:px-6">
+      <div className="container px-4 md:px-6 mx-auto">
         {/* Section Header */}
         <motion.div
           className="flex flex-col items-center justify-center space-y-8 text-center mb-16"

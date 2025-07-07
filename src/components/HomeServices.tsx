@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { Microscope, Shield, FileText } from "lucide-react"
+import { Microscope, Shield, FileText, Check } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface ServiceCardProps {
@@ -15,7 +15,7 @@ interface ServiceCardProps {
 function ServiceCard({ icon, title, description, features, gradientFrom, gradientTo, bgOverlay }: ServiceCardProps) {
   return (
     <motion.div variants={fadeUp}>
-      <Card className={`relative overflow-hidden border-0 shadow-xl bg-gradient-to-br from-white to-${gradientTo}/50 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 group`}>
+      <Card className={`relative overflow-hidden border-white shadow-lg bg-gradient-to-br from-white to-${gradientTo}/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group`}>
         <div className={`absolute inset-0 ${bgOverlay}`}></div>
         <CardHeader className="relative pb-4">
           <div className={`w-16 h-16 ${gradientFrom} rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
@@ -28,7 +28,7 @@ function ServiceCard({ icon, title, description, features, gradientFrom, gradien
           <ul className="space-y-2">
             {features.map((feature, index) => (
               <li key={index} className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <Check className="w-4 h-4 text-green-500" />
                 <span className="text-gray-700">{feature}</span>
               </li>
             ))}
@@ -87,7 +87,7 @@ export default function ServiceCards() {
 
   return (
     <motion.div
-      className="grid gap-8 lg:grid-cols-3 max-w-7xl mx-auto"
+      className="grid gap-8 lg:grid-cols-3 mx-auto"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
