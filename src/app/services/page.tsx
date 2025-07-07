@@ -14,9 +14,9 @@ import {
   Beaker,
 } from "lucide-react"
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin"
-import StatsSection from "@/components/statsGrid"
+import StatsSection from "@/components/statsSection"
 import WhyUs from "@/components/whyUs"
-import FloatingParticles from "@/components/ui/floatingparticles"
+import FloatingParticles from "@/components/floatingparticles"
 import AdaptiveServiceSolutions from "@/components/serviceComponents/adaptive"
 import { useMobileMenu } from "@/context/mobilemenu"
 import Header from "@/components/Header"
