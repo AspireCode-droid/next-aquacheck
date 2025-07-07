@@ -1,22 +1,25 @@
 'use client'
-
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useActiveSection } from "@/hooks/useActiveSec"
-import { useScrollAnimation } from "@/hooks/useScrollAnimate"
+import { useScroll, useInView, useMotionValueEvent } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Droplets, Phone, Mail } from "lucide-react"
-import { ScrollReveal } from "@/components/scrollreveal"
-import { Badge } from "@/components/ui/badge"
-import { useParallax } from "@/hooks/useScrollAnimate"
 import { Star, Shield, Calendar, Info, BookOpen } from "lucide-react"
-  
-export default function Navbar() {
+import clsx from "clsx";
+
+type Props = {
+  activeSection: string
+}
+
+export default function Header({ activeSection }: Props ) {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const { scrollY, isScrolled } = useScrollAnimation()
-    const activeSection = useActiveSection()
-    const parallaxOffset = useParallax(0.3)
-    const parallaxOffsetSlow = useParallax(0.1)
+    const pathname = usePathname()
+    const { scrollY } = useScroll()
+    const [scrolled, setScrolled] = useState(false)
+    useMotionValueEvent(scrollY, "change", (latest) => {
+    setScrolled(latest > 50)
+    })
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen)
@@ -35,21 +38,21 @@ export default function Navbar() {
         {/* Header with Scroll Animation */}
         <header
           className={`px-4 lg:px-6 h-20 flex items-center justify-between border-b sticky top-0 z-50 transition-all duration-300 ${
-            isScrolled
+            scrolled
               ? "bg-white/95 backdrop-blur-xl border-gray-200 shadow-lg"
             : "bg-white/80 backdrop-blur-xl border-gray-100"
         }`}
-      >
+        >
         <Link href="#home" className="flex items-center justify-center">
           <div className="relative">
             <Droplets
-              className={`h-10 w-10 text-blue-600 transition-all duration-300 ${isScrolled ? "scale-90" : ""}`}
+              className={`h-10 w-10 text-blue-600 transition-all duration-300 ${scrolled ? "scale-90" : ""}`}
             />
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-cyan-400 rounded-full animate-pulse"></div>
           </div>
           <span
             className={`ml-3 font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent transition-all duration-300 ${
-              isScrolled ? "text-xl" : "text-2xl"
+              scrolled ? "text-xl" : "text-2xl"
             }`}
           >
             Aquacheck
@@ -63,7 +66,7 @@ export default function Navbar() {
               key={item.id}
               href={`${item.id}`}
               className={`text-sm font-medium transition-all duration-300 hover:scale-105 ${
-                activeSection === item.id ? "text-blue-600 font-semibold" : "text-gray-600 hover:text-blue-600"
+                pathname === item.id ? "text-blue-600 font-semibold" : "text-gray-600 hover:text-blue-600"
               }`}
             >
               {item.label}
@@ -71,7 +74,7 @@ export default function Navbar() {
           ))}
           <Button
             className={`bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 ${
-              isScrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
+              scrolled ? "px-4 py-1.5 text-sm" : "px-6 py-2"
             }`}
           >
             Get Quote
@@ -116,7 +119,7 @@ export default function Navbar() {
                   href={`${item.id}`}
                   onClick={toggleMenu}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 transform hover:translate-x-2 ${
-                    isActive
+                    pathname === item.id
                       ? "bg-gradient-to-r from-blue-50 to-cyan-50 text-blue-700 border border-blue-200 shadow-sm"
                       : "text-gray-700 hover:text-blue-600 hover:bg-gray-50"
                   } ${isMenuOpen ? "animate-slideInRight" : ""}`}

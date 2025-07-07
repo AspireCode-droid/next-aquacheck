@@ -8,25 +8,16 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import {
-  Droplets,
   Shield,
   Microscope,
   CheckCircle,
   Phone,
   Mail,
-  MapPin,
   ArrowRight,
   Beaker,
-  FileText,
-  AlertTriangle,
-  Users,
-  Clock,
-  Award,
 } from "lucide-react"
 import { MorphSVGPlugin } from "gsap/MorphSVGPlugin"
-import Navbar from "@/components/navbar"
-import MotionPathHelper from "gsap/dist/MotionPathHelper"
-import GSAPMotionPath from "@/lib/motionpath"
+import Navbar from "@/components/Header"
 import StatsSection from "@/components/statsGrid"
 import WhyUs from "@/components/whyUs"
 import FloatingParticles from "@/components/ui/floatingparticles"
