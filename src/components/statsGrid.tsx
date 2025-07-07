@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+
 
 import StatItem from "./stat-Item"
 const stats = [

@@ -1,5 +1,5 @@
 "use client"
-import {  useRef,useEffect } from "react"
+import {  useRef } from "react"
 import { motion, useScroll, useTransform,} from "framer-motion"
 import { gsap } from "gsap"
 import { MotionPathPlugin } from "gsap/MotionPathPlugin"
@@ -25,12 +25,8 @@ import { ServicesSection } from "@/components/serviceComponents/serviceCards"
 import { Footer } from "@/components/footer"
 
 
-// Register GSAP plugins
-useEffect(() => {
-  if (typeof window !== "undefined") {
-    gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, MorphSVGPlugin);
-  }
-}, []);
+
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, MorphSVGPlugin)
 
 export default function AquaCheckServices() {
   const { isMenuOpen } = useMobileMenu()
