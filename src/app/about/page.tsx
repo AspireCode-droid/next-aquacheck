@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 import AnimatedCounter from "@/lib/animatedCounter"
 import Header from "@/components/Header"
 import AboutHero from "@/components/aboutComponents/hero"
-import MissionSection from "@/components/aboutComponents/misson"
+import MissionSection from "@/components/aboutComponents/mission"
 import { Footer } from "@/components/footer"
 import AboutCta from '@/components/aboutComponents/aboutCta'
 import Expertise from "@/components/aboutComponents/expertise"
