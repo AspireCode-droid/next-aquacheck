@@ -58,7 +58,7 @@ function MarqueeItem({ item }: MarqueeItemProps) {
 export default function MarqueeContent() {
   return (
     <div className="relative  w-full max-w-screen-md mx-auto px-4 sm:px-6 md:px-8 overflow-hidden rounded-xl md:rounded-2xl border border-blue-100/50 backdrop-blur-sm">
-      <Marquee pauseOnHover={true} gradient={true} gradientColor="hsl(0, 0%, 100%)" gradientWidth={60}  speed={40} className="py-2 overflow-y-hidden">
+      <Marquee pauseOnHover={true} gradient={true} gradientColor="hsl(0, 0%, 100%)" gradientWidth={60}  speed={20} className="py-2 overflow-y-hidden">
         {marqueeItems.map((item, idx) => (
           <MarqueeItem key={idx} item={item} />
         ))}
