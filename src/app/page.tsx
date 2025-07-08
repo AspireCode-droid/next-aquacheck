@@ -1,7 +1,7 @@
 "use client"
 
 import { Badge } from "@/components/ui/badge"
-import {ContactCta} from "@/components/homeComponents/contact"
+import {ContactCta} from "@/components/contact"
 import { motion } from "framer-motion"
 import Header from "@/components/Header"
 import HomeServices from "@/components/homeComponents/HomeServices"
