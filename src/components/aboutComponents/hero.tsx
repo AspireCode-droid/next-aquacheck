@@ -57,9 +57,9 @@ export default function AboutHeroSection() {
             </Button>
             <Button
               size="lg"
-              className="mx-auto sm:w-auto bg-white px-6 text-cyan-500 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="mx-auto sm:w-auto bg-white px-6 text-gray-700 md:px-8 py-3 md:py-4 text-sm md:text-base rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
-              Meet the Team
+              Contact Us
             </Button>
           </motion.div>
         </div>

@@ -70,17 +70,17 @@ export default function AboutUs() {
                         <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-emerald-500"></div>
 
                             {milestones.map((milestone, index) => (
-                                <motion.div>
+                                <motion.div key={index}>
                                     <div className="relative flex items-start mb-12">
                                         <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-white shadow-lg z-10">
-                                        {milestone.icon}
-                                        </div>
-                                        <div className="ml-8 flex-1">
-                                        <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
-                                            <div className="text-sm font-bold text-blue-600 mb-2">{milestone.year}</div>
-                                            <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
-                                            <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
-                                        </div>
+                                            {milestone.icon}
+                                            </div>
+                                            <div className="ml-8 flex-1">
+                                            <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                                                <div className="text-sm font-bold text-blue-600 mb-2">{milestone.year}</div>
+                                                <h3 className="text-xl font-bold text-gray-900 mb-3">{milestone.title}</h3>
+                                                <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </motion.div>

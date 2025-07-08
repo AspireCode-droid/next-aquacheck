@@ -6,16 +6,16 @@ export default function Expertise(){
     return(
         <section id="services" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 lg:px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">Our Expertise</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Comprehensive water safety services backed by decades of experience and cutting-edge technology.
             </p>
           </div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Water Testing & Analysis</h3>
+            <div className="flex flex-col ">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 text-left">Water Testing & Analysis</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <CheckCircle className="h-6 w-6 text-green-600 mt-0.5 flex-shrink-0" />
