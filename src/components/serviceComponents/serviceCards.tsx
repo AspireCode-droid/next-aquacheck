@@ -7,8 +7,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 
-export function ServicesSection({ servicesRef }: { servicesRef?: React.RefObject<HTMLElement> }) {
-    const services = [
+const services = [
     {
         icon: Microscope,
         title: "Water Testing & Analysis",
@@ -48,10 +47,11 @@ export function ServicesSection({ servicesRef }: { servicesRef?: React.RefObject
         ],
         color: "bg-cyan-500",
     },
-    ]
+]
 
+export function ServicesSection() {
     return (
-        <section ref={servicesRef} id="services" className="py-20 bg-white relative overflow-hidden">
+        <section id="services" className="py-20 bg-white relative overflow-hidden">
             <div className="container mx-auto px-4">
                 <motion.div
                     className="text-center mb-16"

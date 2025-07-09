@@ -1,5 +1,3 @@
-// components/MarqueeContent.tsx
-'use client'
 
 import Marquee from 'react-fast-marquee'
 import type { LucideIcon } from "lucide-react"

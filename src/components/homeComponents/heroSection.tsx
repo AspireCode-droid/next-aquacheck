@@ -71,7 +71,7 @@ export default function HeroSection() {
                         viewport={{ once: true, amount: 0.4 }}
                         className="mx-auto px-4  sm:px-6 lg:px-0 text-base md:text-lg lg:text-xl text-gray-600 leading-relaxed max-w-2xl"
                         >
-                          Protect your business with expert water testing, legionella assessments, and compliance monitoring
+                          15+ years of certified experience across the UK
                         </motion.p>
 
                         <motion.div

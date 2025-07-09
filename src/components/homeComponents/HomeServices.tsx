@@ -14,7 +14,7 @@ interface ServiceCardProps {
 
 function ServiceCard({ icon, title, description, features, gradientFrom, gradientTo, bgOverlay }: ServiceCardProps) {
   return (
-    <motion.div variants={fadeUp}>
+    <div>
       <Card className={`relative overflow-hidden border-white shadow-lg bg-gradient-to-br from-white to-${gradientTo}/50 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 group`}>
         <div className={`absolute inset-0 ${bgOverlay}`}></div>
         <CardHeader className="relative pb-4">
@@ -27,31 +27,21 @@ function ServiceCard({ icon, title, description, features, gradientFrom, gradien
         <CardContent className="relative">
           <ul className="space-y-2">
             {features.map((feature, index) => (
-              <li key={index} className="flex items-center gap-3">
+              <motion.li key={index}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+               className="flex items-center gap-3">
                 <Check className="w-4 h-4 text-green-500" />
                 <span className="text-gray-700">{feature}</span>
-              </li>
+              </motion.li>
             ))}
           </ul>
         </CardContent>
       </Card>
-    </motion.div>
+    </div>
   )
-}
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
-}
-
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.2,
-      delayChildren: 0.2,
-    },
-  },
 }
 
 export default function ServiceCards() {
@@ -87,8 +77,7 @@ export default function ServiceCards() {
 
   return (
     <motion.div
-      className="grid gap-8 lg:grid-cols-3 mx-auto"
-      variants={containerVariants}
+      className="grid gap-8 md:grid-cols-3 px-4"
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.3 }}

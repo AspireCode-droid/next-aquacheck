@@ -1,44 +1,33 @@
 
-'use client'
+import {Button} from "@/components/ui/button"
+import { Phone, Mail } from "lucide-react"
+export default function ContactCta(){
+    return(
+        <section className="py-12 bg-gray-50">
+          <div className="container mx-auto px-4 lg:px-6">
+            <div className="text-center">
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-gray-800">Ready to Ensure Your Water Safety?</h2>
+              <p className="text-xl mb-8 max-w-3xl mx-auto opacity-90 ">
+              Contact AquaCheck today for a comprehensive water safety consultation. Our experts are ready to help you
+              protect your facility and comply with regulations.
+              </p>
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, delay, ease: "easeOut" },
-  }),
-}
-
-export function ContactCta() {
-  return (
-    <section className="w-full py-20 md:py-28 bg-gradient-to-br from-blue-100 via-cyan-50 to-white border-t border-blue-200">
-      <div className="container px-4 md:px-6 max-w-5xl mx-auto text-center">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-        >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-            Ready to Protect Your Water Systems?
-          </h2>
-          <p className="text-lg text-gray-600 mb-8 max-w-xl mx-auto">
-            Book a professional water test or get expert advice from our certified specialists.
-          </p>
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-full text-base md:text-lg shadow-md hover:shadow-xl transition-transform transform hover:scale-105"
-          >
-            Schedule Now
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Button>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
+              <div className="flex flex-col sm:flex-row space-y-6 justify-center mb-12 px-12">
+                <Button size="lg" variant="outline" className="bg-gray-700 shadow-sm rounded-2xl border-white text-teal-600 hover:bg-gray-100">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call: +44 (0) 123 456 7890
+                </Button>
+                <Button
+                    size="lg"
+                    variant="outline"
+                    className="border-gray-200 shadow-sm text-gray-700 rounded-2xl hover:bg-white hover:text-blue-600 bg-transparent"
+                >
+                    <Mail className="mr-2 h-5 w-5" />
+                    Email: info@aquacheck.co.uk
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+    );
+};

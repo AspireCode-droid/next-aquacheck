@@ -5,11 +5,26 @@ import {
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
+import { GSAPMotionBackground } from "../gsapMotion"
+import { useParallax } from "@/hooks/parallax"
 
 export default function BookingHero(){
+    const parallaxOffset = useParallax(0.3)
     return(
         <section className="py-12 px-4">
-            <div className="flex flex-col container mx-auto text-center max-w-4xl space-y-6 items-center justify-center">
+            <div className="absolute inset-0 z-0">
+                <div className="absolute top-10 md:top-20 left-5 md:left-10 w-32 h-32 md:w-72 md:h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+                    style={{ transform: `translateY(${parallaxOffset}px)` }}
+                />
+                <div className="absolute top-20 md:top-40 right-5 md:right-10 w-32 h-32 md:w-72 md:h-72 bg-cyan-200 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+                    style={{ transform: `translateY(${-parallaxOffset * 0.8}px)` }}
+                />
+                <div className="absolute bottom-20 md:bottom-20 left-1/2 w-32 h-32 md:w-72 md:h-72 bg-teal-50 rounded-full mix-blend-multiply filter blur-xl opacity-30"
+                    style={{ transform: `translateY(${parallaxOffset * 0.6}px)` }}
+                />
+            </div>
+            <div className="flex flex-col container mx-auto text-center max-w-4xl space-y-6 items-center justify-center z-10">
+                <GSAPMotionBackground/>
                 <h2>
                     <Badge
                         variant="outline"
